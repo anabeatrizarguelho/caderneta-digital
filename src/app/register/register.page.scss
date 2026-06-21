@@ -1,0 +1,63 @@
+.container {
+  padding: 25px;
+  max-width: 420px;
+  margin: auto;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.circle {
+  width: 70px;
+  height: 70px;
+  background: var(--amarelo);
+  border-radius: 50%;
+  margin: 0 auto 10px auto;
+}
+
+.header h1 {
+  font-size: 24px;
+  margin: 0;
+}
+
+.header p {
+  font-size: 14px;
+  color: var(--marrom);
+  opacity: 0.8;
+}
+
+.card {
+  background: #fff;
+  padding: 20px;
+  border-radius: 18px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+}
+
+ion-item {
+  margin-bottom: 12px;
+  --border-radius: 10px;
+}
+
+.btn-register {
+  --background: var(--verde);
+  --color: white;
+  height: 48px;
+  border-radius: 10px;
+  font-weight: bold;
+  text-transform: none;
+  margin-top: 10px;
+}
+
+.link {
+  text-align: center;
+  margin-top: 15px;
+  font-size: 14px;
+}
+
+.link a {
+  color: var(--laranja);
+  font-weight: bold;
+  text-decoration: none;
+}

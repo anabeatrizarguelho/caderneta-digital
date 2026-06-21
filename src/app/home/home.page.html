@@ -1,20 +1,65 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
+<ion-content>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+  <div class="header">
+    <h2>Olá, {{ user.nome }} 👋</h2>
+    <p>Acompanhe a jornada vacinal das suas crianças</p>
   </div>
+
+  <div class="cards">
+    <div class="card verde">
+      <h3>{{ summary.total }}</h3>
+      <p>Crianças cadastradas</p>
+    </div>
+    <div class="card amarelo">
+      <h3>{{ summary.pendentes }}</h3>
+      <p>Vacinas pendentes</p>
+    </div>
+    <div class="card laranja">
+      <h3>{{ summary.atrasadas }}</h3>
+      <p>Vacinas atrasadas</p>
+    </div>
+  </div>
+
+  <div class="campaigns">
+    <h3>Campanhas ativas</h3>
+    <div class="campaign-card" *ngFor="let campaign of campaigns">
+      <h4>{{ campaign.title }}</h4>
+      <p>{{ campaign.description }}</p>
+      <span>{{ campaign.period }}</span>
+    </div>
+  </div>
+
+  <div class="actions">
+    <ion-button expand="block" class="btn-primary" routerLink="/add-child">
+      + Adicionar filho
+    </ion-button>
+  </div>
+
+  <div class="section">
+    <h3>Seus filhos</h3>
+
+    <div *ngIf="filhos && filhos.length; else emptyList">
+      <div class="child-card" *ngFor="let filho of filhos; let i = index" [routerLink]="['/child', i]">
+
+        <div class="avatar">
+          {{ filho.nome.charAt(0) }}
+        </div>
+
+        <div class="child-info">
+          <h4>{{ filho.nome }}</h4>
+          <p>{{ filho.idade }} anos</p>
+        </div>
+
+        <ion-badge [color]="getBadgeColor(filho.status)">
+          {{ filho.status }}
+        </ion-badge>
+
+      </div>
+    </div>
+
+    <ng-template #emptyList>
+      <p>Você ainda não adicionou filhos. Use o botão acima para começar.</p>
+    </ng-template>
+  </div>
+
 </ion-content>

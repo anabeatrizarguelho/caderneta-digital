@@ -1,0 +1,45 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button fill="clear" (click)="router.navigateByUrl('/home')">
+        <ion-icon [icon]="arrowBack"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>{{ child?.nome }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="header">
+    <h2>{{ child?.nome }}</h2>
+    <p>{{ child?.idade }} anos</p>
+  </div>
+
+  <div class="status-card">
+    <p>Situação atual</p>
+    <ion-badge [color]="getBadgeColor(child?.status || '')">{{ child?.status }}</ion-badge>
+  </div>
+
+  <div class="section">
+    <h3>Histórico vacinal</h3>
+    <ion-list>
+      <ion-item *ngFor="let item of schedule">
+        <ion-label>
+          <h3>{{ item.nome }}</h3>
+          <p>{{ item.descricao }}</p>
+          <p class="age-info">Recomendada aos: {{ item.idadeMeses }} meses</p>
+        </ion-label>
+        <ion-badge slot="end" [color]="getBadgeColor(item.status)">{{ item.status }}</ion-badge>
+        <ion-button
+          slot="end"
+          fill="clear"
+          size="small"
+          (click)="marcarComoAplicada(item)"
+          [class.applied]="item.status === 'Aplicada'"
+        >
+          <ion-icon [icon]="checkmark"></ion-icon>
+        </ion-button>
+      </ion-item>
+    </ion-list>
+  </div>
+</ion-content>

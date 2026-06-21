@@ -1,0 +1,33 @@
+<ion-content>
+  <div class="container">
+
+    <div class="header">
+      <div class="circle"></div>
+      <h1>Caderneta Digital</h1>
+      <p>Controle de vacinação infantil</p>
+    </div>
+
+    <div class="card">
+
+      <ion-item fill="outline">
+        <ion-label position="floating">E-mail</ion-label>
+        <ion-input [(ngModel)]="email" type="email"></ion-input>
+      </ion-item>
+
+      <ion-item fill="outline">
+        <ion-label position="floating">Senha</ion-label>
+        <ion-input [(ngModel)]="password" type="password"></ion-input>
+      </ion-item>
+
+      <ion-button expand="block" class="btn-login" (click)="login()">
+        Entrar
+      </ion-button>
+
+      <p class="link">
+        Não tem conta? <a routerLink="/register">Criar agora</a>
+      </p>
+
+    </div>
+
+  </div>
+</ion-content>

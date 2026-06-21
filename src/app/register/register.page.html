@@ -1,0 +1,38 @@
+<ion-content>
+  <div class="container">
+
+    <div class="header">
+      <div class="circle"></div>
+      <h1>Criar Conta</h1>
+      <p>Acompanhe cada fase da vacinação dos seus filhos com mais praticidade</p>
+    </div>
+
+    <div class="card">
+
+      <ion-item fill="outline">
+        <ion-label position="floating">Nome do responsável</ion-label>
+        <ion-input [(ngModel)]="nome"></ion-input>
+      </ion-item>
+
+      <ion-item fill="outline">
+        <ion-label position="floating">E-mail</ion-label>
+        <ion-input [(ngModel)]="email"></ion-input>
+      </ion-item>
+
+      <ion-item fill="outline">
+        <ion-label position="floating">Senha</ion-label>
+        <ion-input type="password" [(ngModel)]="password"></ion-input>
+      </ion-item>
+
+      <ion-button expand="block" class="btn-register" (click)="register()">
+        Criar conta
+      </ion-button>
+
+      <p class="link">
+        Já tem conta? <a routerLink="/login">Entrar</a>
+      </p>
+
+    </div>
+
+  </div>
+</ion-content>
