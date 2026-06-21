@@ -1,6 +1,15 @@
 ion-content {
   --background: #ffffff;
+  font-family: "Archivo", arial, sans-serif;
 }
+
+ion-title {
+  font-family: "Google Sans", arial, sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--marrom);
+}
+
 
 /* HEADER */
 .header {
@@ -8,6 +17,7 @@ ion-content {
 }
 
 .header h2 {
+  font-family: "Archivo", arial, sans-serif;
   margin: 0;
   color: #473C33;
 }
@@ -44,15 +54,15 @@ ion-content {
 }
 
 .verde {
-  background: #ABC270;
+  background: var(--verde);
 }
 
 .amarelo {
-  background: #FEC868;
+  background: var(--amarelo);
 }
 
 .laranja {
-  background: #FDA769;
+  background: var(--laranja);
 }
 
 /* CAMPANHAS */
@@ -117,7 +127,7 @@ ion-content {
 .avatar {
   width: 44px;
   height: 44px;
-  background: #ABC270;
+  background: var(--verde);
   color: white;
   border-radius: 50%;
   display: flex;
@@ -159,4 +169,19 @@ ion-content {
   margin-top: 10px;
   height: 45px;
   border-radius: 10px;
+}
+
+/* TOOLBAR */
+ion-toolbar {
+  --background: var(--verde);
+  --color: white;
+}
+
+ion-toolbar ion-title {
+  color: white;
+  font-weight: 600;
+}
+
+ion-button[slot="start"] {
+  --color: white;
 }

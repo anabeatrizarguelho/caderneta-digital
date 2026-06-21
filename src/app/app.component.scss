@@ -1,0 +1,56 @@
+/* Menu Styles */
+ion-menu {
+  --width: 280px;
+}
+
+ion-menu ion-toolbar {
+  --background: #ABC270;
+  --color: white;
+}
+
+ion-menu ion-title {
+  color: white;
+  font-weight: 600;
+}
+
+ion-menu ion-content {
+  --background: #f8f8f8;
+}
+
+ion-menu ion-item {
+  --padding-start: 16px;
+  --padding-end: 16px;
+}
+
+ion-menu ion-item:first-child {
+  margin-top: 10px;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+ion-menu ion-item:first-child ion-label {
+  padding: 16px 0;
+}
+
+ion-menu ion-item:first-child h2 {
+  margin: 0;
+  color: #473C33;
+  font-weight: 600;
+}
+
+ion-menu ion-item[button] {
+  margin-top: 10px;
+}
+
+ion-menu ion-item[button] ion-label {
+  color: #473C33;
+  font-weight: 500;
+}
+
+ion-menu ion-item[button] ion-icon {
+  color: #FDA769;
+  margin-right: 10px;
+}
+
+ion-menu ion-item[button]:active {
+  --background: #f0f0f0;
+}

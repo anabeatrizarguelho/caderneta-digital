@@ -9,23 +9,26 @@
   margin-bottom: 25px;
 }
 
-.circle {
-  width: 70px;
-  height: 70px;
-  background: var(--amarelo);
-  border-radius: 50%;
-  margin: 0 auto 10px auto;
+.logo-img {
+  width: 200px;
+  height: 200px;
+  margin-top: 20px;
 }
 
 .header h1 {
-  font-size: 24px;
+  font-family: "Archivo", arial, sans-serif;
+  font-size: 26px;
   margin: 0;
+  font-weight: 700;
 }
 
 .header p {
-  font-size: 14px;
+  font-size: 16px;
+  font-family: "Google Sans", arial, sans-serif;
   color: var(--marrom);
   opacity: 0.8;
+  
+
 }
 
 .card {
@@ -45,6 +48,7 @@ ion-item {
   --color: white;
   height: 48px;
   border-radius: 10px;
+  font-family: "Google Sans", arial, sans-serif;
   font-weight: bold;
   text-transform: none;
   margin-top: 10px;
@@ -60,4 +64,10 @@ ion-item {
   color: var(--laranja);
   font-weight: bold;
   text-decoration: none;
+}
+
+ion-label.color-labels {
+  font-family: "Google Sans", arial, sans-serif;
+  font-weight: 500;
+  color: var(--marrom);
 }

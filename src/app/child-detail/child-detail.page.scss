@@ -1,5 +1,6 @@
 ion-content {
   --background: #ffffff;
+  font-family: "Archivo", arial, sans-serif;
 }
 
 .header {
@@ -7,13 +8,15 @@ ion-content {
 }
 
 .header h2 {
+  font-family: "Archivo", arial, sans-serif;
   margin: 0;
-  color: #473C33;
+  color: var(--marrom);
+  font-weight: 600;
 }
 
 .header p {
   margin: 6px 0 0;
-  color: #473C33;
+  color: var(--marrom);
   opacity: 0.7;
 }
 

@@ -11,15 +11,21 @@ ion-content {
 .header {
   text-align: center;
   margin-bottom: 20px;
+  margin-top: 50px;
 }
 
 .header h2 {
-  color: #473C33;
+  font-family: "Archivo", arial, sans-serif;
+  color: var(--marrom);
+  font-weight: 500;
   margin: 0;
 }
 
 .header p {
-  color: #473C33;
+  font-size: 16px;
+  font-family: "Archivo", arial, sans-serif;
+  // font-weight: 500;
+  color: var(--marrom);
   opacity: 0.7;
 }
 
@@ -36,11 +42,17 @@ ion-item {
 }
 
 .btn-salvar {
-  --background: #ABC270;
+  --background: var(--verde);
   --color: white;
   height: 48px;
   border-radius: 10px;
   font-weight: bold;
   text-transform: none;
   margin-top: 10px;
+}
+
+ion-label.color-labels {
+  font-weight: 500;
+  font-family: "Google Sans", arial, sans-serif;
+  color: var(--marrom);
 }

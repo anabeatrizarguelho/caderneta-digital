@@ -80,7 +80,7 @@
   animation: pulse 2s ease-in-out infinite;
 }
 
-/* Pulse na logo */
+
 @keyframes pulse {
   0%, 100% {
     transform: scale(1);
@@ -90,20 +90,23 @@
   }
 }
 
-/* Texto */
+
 .logo h1 {
   margin: 0;
-  font-size: 24px;
+  font-size: 26px;
+  font-family: "Google Sans", arial, sans-serif;
+  font-weight: 700;
   color: #473C33;
 }
 
 .logo p {
-  font-size: 14px;
+  font-size: 16px;
+  font-family: "Google Sans", arial, sans-serif;
+  width: 400px;
   color: #473C33;
   opacity: 0.7;
 }
 
-/* Loader */
 .loader {
   margin: 25px auto 0 auto;
   width: 35px;

@@ -36,6 +36,20 @@
 /* @import "@ionic/angular/css/palettes/dark.class.css"; */
 @import '@ionic/angular/css/palettes/dark.system.css';
 
+@import url('https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100..900;1,100..900&family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+:root {
+  --verde: #ABC270;
+  --amarelo: #FEC868;
+  --laranja: #FDA769;
+  --marrom: #473C33;
+}
+
+
+
+
+
+
 ion-content {
   --background: var(--bg);
   font-family: Arial, sans-serif;

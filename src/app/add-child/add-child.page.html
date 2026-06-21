@@ -3,19 +3,19 @@
   <div class="container">
 
     <div class="header">
-      <h2>Adicionar Filho 👶</h2>
-      <p>Cadastre uma nova criança na caderneta</p>
+      <h2>Cadastrar criança</h2>
+      <p>Preencha os dados para adicionar a criança à caderneta de vacinação</p>
     </div>
 
     <div class="card">
 
       <ion-item fill="outline">
-        <ion-label position="floating">Nome da criança</ion-label>
+        <ion-label class="color-labels" position="floating">Nome completo</ion-label>
         <ion-input [(ngModel)]="nome"></ion-input>
       </ion-item>
 
       <ion-item fill="outline">
-        <ion-label position="floating">Idade</ion-label>
+        <ion-label class="color-labels" position="floating">Idade</ion-label>
         <ion-input type="number" [(ngModel)]="idade"></ion-input>
       </ion-item>
 

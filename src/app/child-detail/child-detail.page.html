@@ -1,18 +1,7 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-buttons slot="start">
-      <ion-button fill="clear" (click)="router.navigateByUrl('/home')">
-        <ion-icon [icon]="arrowBack"></ion-icon>
-      </ion-button>
-    </ion-buttons>
-    <ion-title>{{ child?.nome }}</ion-title>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content>
   <div class="header">
     <h2>{{ child?.nome }}</h2>
-    <p>{{ child?.idade }} anos</p>
+    <p>{{ formatChildAge(child?.idade) }}</p>
   </div>
 
   <div class="status-card">
@@ -21,7 +10,7 @@
   </div>
 
   <div class="section">
-    <h3>Histórico vacinal</h3>
+    <h3>Histórico Vacinal</h3>
     <ion-list>
       <ion-item *ngFor="let item of schedule">
         <ion-label>

@@ -1,7 +1,18 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Caderneta Digital</ion-title>
+    <ion-buttons slot="end">
+      <ion-button fill="clear" (click)="logout()">
+        <ion-icon [icon]="logOutIcon"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
 <ion-content>
 
   <div class="header">
-    <h2>Olá, {{ user.nome }} 👋</h2>
+    <h2>Olá, {{ user.nome }}!</h2>
     <p>Acompanhe a jornada vacinal das suas crianças</p>
   </div>
 
@@ -21,7 +32,7 @@
   </div>
 
   <div class="campaigns">
-    <h3>Campanhas ativas</h3>
+    <h3>Campanhas Ativas</h3>
     <div class="campaign-card" *ngFor="let campaign of campaigns">
       <h4>{{ campaign.title }}</h4>
       <p>{{ campaign.description }}</p>
@@ -31,7 +42,7 @@
 
   <div class="actions">
     <ion-button expand="block" class="btn-primary" routerLink="/add-child">
-      + Adicionar filho
+      + Adicionar filho(a)
     </ion-button>
   </div>
 
@@ -47,7 +58,7 @@
 
         <div class="child-info">
           <h4>{{ filho.nome }}</h4>
-          <p>{{ filho.idade }} anos</p>
+          <p>{{ formatChildAge(filho.idade) }}</p>
         </div>
 
         <ion-badge [color]="getBadgeColor(filho.status)">
