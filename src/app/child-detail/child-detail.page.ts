@@ -216,7 +216,8 @@ export class ChildDetailPage {
     const vacinesAplicadas = this.child.vacinas_aplicadas || {};
 
     this.schedule = this.vaccineDatabase
-      .filter((item) => ageMonths <= item.maxAgeMonths + 12)
+  
+      .filter((item) => ageMonths >= item.idadeMeses || !!vacinesAplicadas[item.nome])
       .map((item) => {
         const isApplied = vacinesAplicadas[item.nome];
         let status = 'Aguardando';

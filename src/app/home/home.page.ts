@@ -56,21 +56,7 @@ export class HomePage implements OnDestroy {
     // Se inscreve nos eventos de atualização de vacinas
     this.vaccineSyncService.vaccineUpdated$
       .pipe(takeUntil(this.destroy$))
-      .subscribe((event: VaccineUpdateEvent) => {
-        if (event && typeof event.index === 'number') {
-          // Atualiza apenas o filho afetado
-          const filhos = JSON.parse(localStorage.getItem('filhos') || '[]');
-          const updatedFilho = filhos[event.index];
-          if (updatedFilho) {
-            this.filhos[event.index] = {
-              ...updatedFilho,
-              status: this.getChildOverviewStatus(updatedFilho),
-            };
-            this.updateSummary();
-            this.changeDetectorRef.detectChanges();
-            return;
-          }
-        }
+      .subscribe(() => {
         this.recarregarDados();
       });
   }
@@ -125,16 +111,18 @@ export class HomePage implements OnDestroy {
   private countPendingAndOverdueVaccines() {
     return this.filhos.reduce(
       (acc, filho: any) => {
-        const ageMonths = (filho.idade || 0) * 12;
+        const ageMonths = this.getAgeInMonths(filho.idade);
         const schedule = this.buildVaccineSchedule(ageMonths, filho.vacinas_aplicadas || {});
-        schedule.forEach((item) => {
-          if (item.status === 'Pendente') {
-            acc.pending += 1;
-          }
-          if (item.status === 'Atrasada') {
-            acc.overdue += 1;
-          }
-        });
+        schedule
+          .filter((item) => item.idadeMeses <= ageMonths)
+          .forEach((item) => {
+            if (item.status === 'Pendente') {
+              acc.pending += 1;
+            }
+            if (item.status === 'Atrasada') {
+              acc.overdue += 1;
+            }
+          });
         return acc;
       },
       { pending: 0, overdue: 0 }
@@ -142,15 +130,20 @@ export class HomePage implements OnDestroy {
   }
 
   private getChildOverviewStatus(filho: any) {
-    const today = new Date();
-    const ageMonths = (filho.idade || 0) * 12;
+    const ageMonths = this.getAgeInMonths(filho.idade);
     const schedule = this.buildVaccineSchedule(ageMonths, filho.vacinas_aplicadas || {});
-    const overdue = schedule.some((item) => item.status === 'Atrasada');
+    const dueSchedule = schedule.filter((item) => item.idadeMeses <= ageMonths);
+    const overdue = dueSchedule.some((item) => item.status === 'Atrasada');
     if (overdue) {
       return 'Atrasado';
     }
-    const pending = schedule.some((item) => item.status === 'Pendente');
+    const pending = dueSchedule.some((item) => item.status === 'Pendente');
     return pending ? 'Pendente' : 'Em dia';
+  }
+
+  private getAgeInMonths(ageYears: number | null | undefined): number {
+    const age = Number(ageYears) || 0;
+    return Math.max(0, Math.round(age * 12));
   }
 
   private buildVaccineSchedule(ageMonths: number, vacinesAplicadas: any) {

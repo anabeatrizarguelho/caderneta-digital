@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Subject } from 'rxjs';
+import { ReplaySubject } from 'rxjs';
 
 export interface VaccineUpdateEvent {
   index?: number;
@@ -9,8 +9,9 @@ export interface VaccineUpdateEvent {
   providedIn: 'root'
 })
 export class VaccineSyncService {
-  private vaccineUpdatedSubject = new Subject<VaccineUpdateEvent>();
-  
+  // Usa ReplaySubject(1) para reemitir o último evento a assinantes tardios
+  private vaccineUpdatedSubject = new ReplaySubject<VaccineUpdateEvent>(1);
+
   // Observable que emite quando as vacinas são atualizadas
   vaccineUpdated$ = this.vaccineUpdatedSubject.asObservable();
 
